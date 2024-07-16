@@ -7,14 +7,34 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B05147E02C46845A00861795 /* HealthIntegration.swift in Sources */ = {isa = PBXBuildFile; fileRef = B05147DF2C46845A00861795 /* HealthIntegration.swift */; };
+		B05147E32C46890600861795 /* StylePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = B05147E22C46890600861795 /* StylePicker.swift */; };
+		B05147E42C46890600861795 /* StylePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = B05147E22C46890600861795 /* StylePicker.swift */; };
+		B05147E72C468FAF00861795 /* Onboarding.swift in Sources */ = {isa = PBXBuildFile; fileRef = B05147E62C468FAF00861795 /* Onboarding.swift */; };
+		B05147E82C468FAF00861795 /* Onboarding.swift in Sources */ = {isa = PBXBuildFile; fileRef = B05147E62C468FAF00861795 /* Onboarding.swift */; };
+		B05147EB2C46900100861795 /* CompaignGallery.swift in Sources */ = {isa = PBXBuildFile; fileRef = B05147EA2C46900100861795 /* CompaignGallery.swift */; };
+		B05147EC2C46900100861795 /* CompaignGallery.swift in Sources */ = {isa = PBXBuildFile; fileRef = B05147EA2C46900100861795 /* CompaignGallery.swift */; };
+		B05147EE2C469ABC00861795 /* Buttons.swift in Sources */ = {isa = PBXBuildFile; fileRef = B05147ED2C469ABC00861795 /* Buttons.swift */; };
+		B05147EF2C469ABC00861795 /* Buttons.swift in Sources */ = {isa = PBXBuildFile; fileRef = B05147ED2C469ABC00861795 /* Buttons.swift */; };
+		B05147F12C469B9400861795 /* Campaign.swift in Sources */ = {isa = PBXBuildFile; fileRef = B05147F02C469B9400861795 /* Campaign.swift */; };
+		B05147F22C469B9400861795 /* Campaign.swift in Sources */ = {isa = PBXBuildFile; fileRef = B05147F02C469B9400861795 /* Campaign.swift */; };
+		B05147F42C469CD700861795 /* CampaignCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = B05147F32C469CD700861795 /* CampaignCard.swift */; };
+		B05147F52C469CD700861795 /* CampaignCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = B05147F32C469CD700861795 /* CampaignCard.swift */; };
+		B05147F72C46A0A500861795 /* CampaignExplained.swift in Sources */ = {isa = PBXBuildFile; fileRef = B05147F62C46A0A500861795 /* CampaignExplained.swift */; };
+		B05147F82C46A0A500861795 /* CampaignExplained.swift in Sources */ = {isa = PBXBuildFile; fileRef = B05147F62C46A0A500861795 /* CampaignExplained.swift */; };
+		B05147FA2C46A1D700861795 /* MainTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B05147F92C46A1D700861795 /* MainTabView.swift */; };
+		B05147FB2C46A1D700861795 /* MainTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B05147F92C46A1D700861795 /* MainTabView.swift */; };
 		B07A0DC52C466667008C0DA1 /* DataPunkApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = B07A0DC42C466667008C0DA1 /* DataPunkApp.swift */; };
 		B07A0DC72C466667008C0DA1 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B07A0DC62C466667008C0DA1 /* ContentView.swift */; };
-		B07A0DC92C466667008C0DA1 /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = B07A0DC82C466667008C0DA1 /* Item.swift */; };
+		B07A0DC92C466667008C0DA1 /* AppState.swift in Sources */ = {isa = PBXBuildFile; fileRef = B07A0DC82C466667008C0DA1 /* AppState.swift */; };
 		B07A0DCB2C466668008C0DA1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B07A0DCA2C466668008C0DA1 /* Assets.xcassets */; };
 		B07A0DCE2C466668008C0DA1 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B07A0DCD2C466668008C0DA1 /* Preview Assets.xcassets */; };
 		B07A0DD82C466668008C0DA1 /* DataPunkTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B07A0DD72C466668008C0DA1 /* DataPunkTests.swift */; };
 		B07A0DE22C466668008C0DA1 /* DataPunkUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B07A0DE12C466668008C0DA1 /* DataPunkUITests.swift */; };
 		B07A0DE42C466668008C0DA1 /* DataPunkUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B07A0DE32C466668008C0DA1 /* DataPunkUITestsLaunchTests.swift */; };
+		B07A0DF22C4668A2008C0DA1 /* web3swift in Frameworks */ = {isa = PBXBuildFile; productRef = B07A0DF12C4668A2008C0DA1 /* web3swift */; };
+		B07A0DF52C466E63008C0DA1 /* Web3Index.swift in Sources */ = {isa = PBXBuildFile; fileRef = B07A0DF42C466E63008C0DA1 /* Web3Index.swift */; };
+		B0B490E92C46800D00B4B83C /* KeychainSwift in Frameworks */ = {isa = PBXBuildFile; productRef = B0B490E82C46800D00B4B83C /* KeychainSwift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -35,10 +55,20 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		B05147DC2C4683DF00861795 /* DataPunk.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = DataPunk.entitlements; sourceTree = "<group>"; };
+		B05147DF2C46845A00861795 /* HealthIntegration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthIntegration.swift; sourceTree = "<group>"; };
+		B05147E22C46890600861795 /* StylePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StylePicker.swift; sourceTree = "<group>"; };
+		B05147E62C468FAF00861795 /* Onboarding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Onboarding.swift; sourceTree = "<group>"; };
+		B05147EA2C46900100861795 /* CompaignGallery.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompaignGallery.swift; sourceTree = "<group>"; };
+		B05147ED2C469ABC00861795 /* Buttons.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Buttons.swift; sourceTree = "<group>"; };
+		B05147F02C469B9400861795 /* Campaign.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Campaign.swift; sourceTree = "<group>"; };
+		B05147F32C469CD700861795 /* CampaignCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CampaignCard.swift; sourceTree = "<group>"; };
+		B05147F62C46A0A500861795 /* CampaignExplained.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CampaignExplained.swift; sourceTree = "<group>"; };
+		B05147F92C46A1D700861795 /* MainTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabView.swift; sourceTree = "<group>"; };
 		B07A0DC12C466667008C0DA1 /* DataPunk.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DataPunk.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B07A0DC42C466667008C0DA1 /* DataPunkApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataPunkApp.swift; sourceTree = "<group>"; };
 		B07A0DC62C466667008C0DA1 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
-		B07A0DC82C466667008C0DA1 /* Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
+		B07A0DC82C466667008C0DA1 /* AppState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppState.swift; sourceTree = "<group>"; };
 		B07A0DCA2C466668008C0DA1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B07A0DCD2C466668008C0DA1 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		B07A0DD32C466668008C0DA1 /* DataPunkTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DataPunkTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -46,6 +76,7 @@
 		B07A0DDD2C466668008C0DA1 /* DataPunkUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DataPunkUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		B07A0DE12C466668008C0DA1 /* DataPunkUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataPunkUITests.swift; sourceTree = "<group>"; };
 		B07A0DE32C466668008C0DA1 /* DataPunkUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataPunkUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		B07A0DF42C466E63008C0DA1 /* Web3Index.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Web3Index.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -53,6 +84,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B0B490E92C46800D00B4B83C /* KeychainSwift in Frameworks */,
+				B07A0DF22C4668A2008C0DA1 /* web3swift in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -73,6 +106,51 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		B05147DD2C46843100861795 /* HealthKit */ = {
+			isa = PBXGroup;
+			children = (
+				B05147DF2C46845A00861795 /* HealthIntegration.swift */,
+			);
+			path = HealthKit;
+			sourceTree = "<group>";
+		};
+		B05147DE2C46843F00861795 /* DevKit */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = DevKit;
+			sourceTree = "<group>";
+		};
+		B05147E12C4688F400861795 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				B05147E22C46890600861795 /* StylePicker.swift */,
+				B05147E62C468FAF00861795 /* Onboarding.swift */,
+				B05147ED2C469ABC00861795 /* Buttons.swift */,
+				B05147F32C469CD700861795 /* CampaignCard.swift */,
+				B05147F62C46A0A500861795 /* CampaignExplained.swift */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
+		B05147E52C46894B00861795 /* DataModels */ = {
+			isa = PBXGroup;
+			children = (
+				B07A0DC82C466667008C0DA1 /* AppState.swift */,
+				B05147F02C469B9400861795 /* Campaign.swift */,
+			);
+			path = DataModels;
+			sourceTree = "<group>";
+		};
+		B05147E92C468FED00861795 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				B05147EA2C46900100861795 /* CompaignGallery.swift */,
+				B05147F92C46A1D700861795 /* MainTabView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
 		B07A0DB82C466667008C0DA1 = {
 			isa = PBXGroup;
 			children = (
@@ -96,9 +174,15 @@
 		B07A0DC32C466667008C0DA1 /* DataPunk */ = {
 			isa = PBXGroup;
 			children = (
+				B05147E92C468FED00861795 /* Views */,
+				B05147E52C46894B00861795 /* DataModels */,
+				B05147E12C4688F400861795 /* Components */,
+				B05147DE2C46843F00861795 /* DevKit */,
+				B05147DD2C46843100861795 /* HealthKit */,
+				B07A0DF32C466E3E008C0DA1 /* Chain */,
+				B05147DC2C4683DF00861795 /* DataPunk.entitlements */,
 				B07A0DC42C466667008C0DA1 /* DataPunkApp.swift */,
 				B07A0DC62C466667008C0DA1 /* ContentView.swift */,
-				B07A0DC82C466667008C0DA1 /* Item.swift */,
 				B07A0DCA2C466668008C0DA1 /* Assets.xcassets */,
 				B07A0DCC2C466668008C0DA1 /* Preview Content */,
 			);
@@ -130,6 +214,14 @@
 			path = DataPunkUITests;
 			sourceTree = "<group>";
 		};
+		B07A0DF32C466E3E008C0DA1 /* Chain */ = {
+			isa = PBXGroup;
+			children = (
+				B07A0DF42C466E63008C0DA1 /* Web3Index.swift */,
+			);
+			path = Chain;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -146,6 +238,10 @@
 			dependencies = (
 			);
 			name = DataPunk;
+			packageProductDependencies = (
+				B07A0DF12C4668A2008C0DA1 /* web3swift */,
+				B0B490E82C46800D00B4B83C /* KeychainSwift */,
+			);
 			productName = DataPunk;
 			productReference = B07A0DC12C466667008C0DA1 /* DataPunk.app */;
 			productType = "com.apple.product-type.application";
@@ -218,6 +314,10 @@
 				Base,
 			);
 			mainGroup = B07A0DB82C466667008C0DA1;
+			packageReferences = (
+				B07A0DF02C4668A2008C0DA1 /* XCRemoteSwiftPackageReference "web3swift" */,
+				B0B490E72C46800D00B4B83C /* XCRemoteSwiftPackageReference "keychain-swift" */,
+			);
 			productRefGroup = B07A0DC22C466667008C0DA1 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -260,9 +360,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B05147F72C46A0A500861795 /* CampaignExplained.swift in Sources */,
+				B05147EE2C469ABC00861795 /* Buttons.swift in Sources */,
 				B07A0DC72C466667008C0DA1 /* ContentView.swift in Sources */,
-				B07A0DC92C466667008C0DA1 /* Item.swift in Sources */,
+				B05147F52C469CD700861795 /* CampaignCard.swift in Sources */,
+				B05147E02C46845A00861795 /* HealthIntegration.swift in Sources */,
+				B05147F12C469B9400861795 /* Campaign.swift in Sources */,
+				B07A0DC92C466667008C0DA1 /* AppState.swift in Sources */,
+				B05147FB2C46A1D700861795 /* MainTabView.swift in Sources */,
+				B05147E72C468FAF00861795 /* Onboarding.swift in Sources */,
+				B07A0DF52C466E63008C0DA1 /* Web3Index.swift in Sources */,
 				B07A0DC52C466667008C0DA1 /* DataPunkApp.swift in Sources */,
+				B05147EB2C46900100861795 /* CompaignGallery.swift in Sources */,
+				B05147E32C46890600861795 /* StylePicker.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -279,7 +389,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				B07A0DE42C466668008C0DA1 /* DataPunkUITestsLaunchTests.swift in Sources */,
+				B05147EC2C46900100861795 /* CompaignGallery.swift in Sources */,
+				B05147F22C469B9400861795 /* Campaign.swift in Sources */,
 				B07A0DE22C466668008C0DA1 /* DataPunkUITests.swift in Sources */,
+				B05147EF2C469ABC00861795 /* Buttons.swift in Sources */,
+				B05147E82C468FAF00861795 /* Onboarding.swift in Sources */,
+				B05147F82C46A0A500861795 /* CampaignExplained.swift in Sources */,
+				B05147E42C46890600861795 /* StylePicker.swift in Sources */,
+				B05147F42C469CD700861795 /* CampaignCard.swift in Sources */,
+				B05147FA2C46A1D700861795 /* MainTabView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -306,7 +424,7 @@
 				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++23";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CLANG_ENABLE_OBJC_WEAK = YES;
@@ -369,7 +487,7 @@
 				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++23";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CLANG_ENABLE_OBJC_WEAK = YES;
@@ -402,6 +520,7 @@
 				ENABLE_USER_SCRIPT_SANDBOXING = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu17;
 				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = s;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
 				GCC_WARN_UNDECLARED_SELECTOR = YES;
@@ -423,6 +542,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = DataPunk/DataPunk.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"DataPunk/Preview Content\"";
@@ -452,6 +572,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = DataPunk/DataPunk.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"DataPunk/Preview Content\"";
@@ -588,6 +709,38 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		B07A0DF02C4668A2008C0DA1 /* XCRemoteSwiftPackageReference "web3swift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/web3swift-team/web3swift.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 3.2.1;
+			};
+		};
+		B0B490E72C46800D00B4B83C /* XCRemoteSwiftPackageReference "keychain-swift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/evgenyneu/keychain-swift.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 24.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		B07A0DF12C4668A2008C0DA1 /* web3swift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = B07A0DF02C4668A2008C0DA1 /* XCRemoteSwiftPackageReference "web3swift" */;
+			productName = web3swift;
+		};
+		B0B490E82C46800D00B4B83C /* KeychainSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = B0B490E72C46800D00B4B83C /* XCRemoteSwiftPackageReference "keychain-swift" */;
+			productName = KeychainSwift;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = B07A0DB92C466667008C0DA1 /* Project object */;
 }

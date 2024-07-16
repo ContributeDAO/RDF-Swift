@@ -12,7 +12,7 @@ import SwiftData
 struct DataPunkApp: App {
     var sharedModelContainer: ModelContainer = {
         let schema = Schema([
-            Item.self,
+            AppState.self,
         ])
         let modelConfiguration = ModelConfiguration(schema: schema, isStoredInMemoryOnly: false)
 
@@ -26,6 +26,9 @@ struct DataPunkApp: App {
     var body: some Scene {
         WindowGroup {
             ContentView()
+                .onAppear {
+                    _ = HealthIntegration.shared
+                }
         }
         .modelContainer(sharedModelContainer)
     }

@@ -10,52 +10,55 @@ import SwiftData
 
 struct ContentView: View {
     @Environment(\.modelContext) private var modelContext
-    @Query private var items: [Item]
-
+    @Query private var appStates: [AppState]
+    private var appState: AppState {
+        if appStates.isEmpty {
+            modelContext.insert(AppState())
+            try! modelContext.save()
+        }
+        return appStates.first!
+    }
+    
     var body: some View {
-        NavigationSplitView {
-            List {
-                ForEach(items) { item in
-                    NavigationLink {
-                        Text("Item at \(item.timestamp, format: Date.FormatStyle(date: .numeric, time: .standard))")
-                    } label: {
-                        Text(item.timestamp, format: Date.FormatStyle(date: .numeric, time: .standard))
+        if appState.experiencePhase == .finished {
+            MainTabView()
+        } else {
+            VStack {
+                switch appState.experiencePhase {
+                case .onboarding:
+                    Onboarding()
+                case .styleSelection:
+                    StylePicker(contributeStyle: Binding(
+                        get: { appState.contributeStyle },
+                        set: { appState.contributeStyle = $0 }
+                    ))
+                case .finished:
+                    EmptyView()
+                }
+                Spacer()
+                Button("Next") {
+                    withAnimation {
+                        switch appState.experiencePhase {
+                        case .onboarding:
+                            appState.experiencePhase = .styleSelection
+                        case .styleSelection:
+                            appState.experiencePhase = .finished
+                        case .finished:
+                            appState.experiencePhase = .onboarding
+                        }
+                        try! modelContext.save()
                     }
                 }
-                .onDelete(perform: deleteItems)
+                .buttonStyle(IntroLargeButtonStyle())
+                .sensoryFeedback(.increase, trigger: appState.experiencePhase)
+                .frame(idealWidth: 400, maxWidth: 500, idealHeight: 80, maxHeight: 100)
             }
-            .toolbar {
-                ToolbarItem(placement: .navigationBarTrailing) {
-                    EditButton()
-                }
-                ToolbarItem {
-                    Button(action: addItem) {
-                        Label("Add Item", systemImage: "plus")
-                    }
-                }
-            }
-        } detail: {
-            Text("Select an item")
-        }
-    }
-
-    private func addItem() {
-        withAnimation {
-            let newItem = Item(timestamp: Date())
-            modelContext.insert(newItem)
-        }
-    }
-
-    private func deleteItems(offsets: IndexSet) {
-        withAnimation {
-            for index in offsets {
-                modelContext.delete(items[index])
-            }
+            .padding(.top, 80)
         }
     }
 }
 
 #Preview {
     ContentView()
-        .modelContainer(for: Item.self, inMemory: true)
+        .modelContainer(for: AppState.self, inMemory: true)
 }
