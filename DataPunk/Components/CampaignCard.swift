@@ -21,13 +21,11 @@ struct CampaignCard: View {
                 .lineLimit(3)
         }
         .padding()
-        .background(Color.white)
+        .background(Color(white: 0.95))
         .cornerRadius(10)
-        .shadow(radius: 5)
-        .padding(5)
     }
 }
 
 #Preview {
-    CampaignCard(campaign: Campaign(title: "Test Campaign", description: "This is a test campaign"))
+    CampaignCard(campaign: Campaign.mockData.first!)
 }

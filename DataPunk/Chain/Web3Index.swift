@@ -84,3 +84,15 @@ func removePrivateKey(for address: String) {
     keychain.delete("privateKey_\(address)")
     print("Removed private key for address: \(address)")
 }
+
+func checkNetwork() async -> String? {
+    do {
+        let web3 = try await Web3.new(URL(string: ProcessInfo.processInfo.environment["INFURA_URL"]!)!)
+        web3.addKeystoreManager(KeystoreManager.defaultManager)
+        let block = try await web3.eth.blockNumber()
+        return block.hexString
+    } catch {
+        print("Error: \(error)")
+    }
+    return nil
+}

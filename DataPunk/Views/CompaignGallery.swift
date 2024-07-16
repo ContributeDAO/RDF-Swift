@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct CompaignGallery: View {
-    var campaigns: [Campaign] = Campaign.mockData
+    @State private var campaigns: [Campaign] = []
     
     let columns = [
         GridItem(.flexible()),
@@ -19,13 +19,17 @@ struct CompaignGallery: View {
         NavigationStack {
             ScrollView {
                 VStack {
-                    
-                    LazyVGrid(columns: columns, spacing: 20) {
+                    LazyVGrid(columns: columns, spacing: 10) {
                         ForEach(campaigns, id: \.title) { campaign in
                             CampaignCard(campaign: campaign)
                         }
                     }
                     .padding()
+                }
+            }
+            .refreshable {
+                if let fetchedCampaigns = await fetchCampaigns() {
+                    campaigns = fetchedCampaigns
                 }
             }
             .navigationTitle("活动")
@@ -36,6 +40,13 @@ struct CompaignGallery: View {
                     }) {
                         Image(systemName: "line.horizontal.3.decrease.circle")
                     }
+                }
+            }
+        }
+        .onAppear {
+            Task {
+                if let fetchedCampaigns = await fetchCampaigns() {
+                    campaigns = fetchedCampaigns
                 }
             }
         }
