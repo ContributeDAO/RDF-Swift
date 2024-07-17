@@ -32,7 +32,6 @@ struct StylePicker: View {
                 .lineLimit(2...)
                 .disabled(true)
                 .font(.subheadline)
-                .animation(.easeInOut, value: contributeStyle)
                 .padding()
             Picker("Contribute Style", selection: $contributeStyle) {
                 Text(titles[.intense]!).tag(AppState.ContributeStyle.intense)

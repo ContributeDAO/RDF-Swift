@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct Campaign: Codable {
+struct Campaign: Codable, Hashable {
     let title: String
     let themes: [String]
     let description: String

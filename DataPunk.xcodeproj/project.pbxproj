@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B050ECCD2C46DC6B008D0B8A /* MyData.swift in Sources */ = {isa = PBXBuildFile; fileRef = B050ECCC2C46DC6B008D0B8A /* MyData.swift */; };
+		B050ECCE2C46DC6B008D0B8A /* MyData.swift in Sources */ = {isa = PBXBuildFile; fileRef = B050ECCC2C46DC6B008D0B8A /* MyData.swift */; };
+		B050ECD02C46E0C4008D0B8A /* OverallChart.swift in Sources */ = {isa = PBXBuildFile; fileRef = B050ECCF2C46E0C4008D0B8A /* OverallChart.swift */; };
+		B050ECD12C46E0C4008D0B8A /* OverallChart.swift in Sources */ = {isa = PBXBuildFile; fileRef = B050ECCF2C46E0C4008D0B8A /* OverallChart.swift */; };
 		B05147E02C46845A00861795 /* HealthIntegration.swift in Sources */ = {isa = PBXBuildFile; fileRef = B05147DF2C46845A00861795 /* HealthIntegration.swift */; };
 		B05147E32C46890600861795 /* StylePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = B05147E22C46890600861795 /* StylePicker.swift */; };
 		B05147E42C46890600861795 /* StylePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = B05147E22C46890600861795 /* StylePicker.swift */; };
@@ -35,6 +39,10 @@
 		B07A0DF22C4668A2008C0DA1 /* web3swift in Frameworks */ = {isa = PBXBuildFile; productRef = B07A0DF12C4668A2008C0DA1 /* web3swift */; };
 		B07A0DF52C466E63008C0DA1 /* Web3Index.swift in Sources */ = {isa = PBXBuildFile; fileRef = B07A0DF42C466E63008C0DA1 /* Web3Index.swift */; };
 		B0B490E92C46800D00B4B83C /* KeychainSwift in Frameworks */ = {isa = PBXBuildFile; productRef = B0B490E82C46800D00B4B83C /* KeychainSwift */; };
+		B0D470882C46ED3A0082FE31 /* OverallParticipate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0D470872C46ED3A0082FE31 /* OverallParticipate.swift */; };
+		B0D470892C46ED3A0082FE31 /* OverallParticipate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0D470872C46ED3A0082FE31 /* OverallParticipate.swift */; };
+		B0D4708B2C477DBB0082FE31 /* Contract.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0D4708A2C477DBB0082FE31 /* Contract.swift */; };
+		B0D4708C2C477DBB0082FE31 /* Contract.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0D4708A2C477DBB0082FE31 /* Contract.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,6 +63,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		B050ECCC2C46DC6B008D0B8A /* MyData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyData.swift; sourceTree = "<group>"; };
+		B050ECCF2C46E0C4008D0B8A /* OverallChart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OverallChart.swift; sourceTree = "<group>"; };
 		B05147DC2C4683DF00861795 /* DataPunk.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = DataPunk.entitlements; sourceTree = "<group>"; };
 		B05147DF2C46845A00861795 /* HealthIntegration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthIntegration.swift; sourceTree = "<group>"; };
 		B05147E22C46890600861795 /* StylePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StylePicker.swift; sourceTree = "<group>"; };
@@ -77,6 +87,8 @@
 		B07A0DE12C466668008C0DA1 /* DataPunkUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataPunkUITests.swift; sourceTree = "<group>"; };
 		B07A0DE32C466668008C0DA1 /* DataPunkUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataPunkUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		B07A0DF42C466E63008C0DA1 /* Web3Index.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Web3Index.swift; sourceTree = "<group>"; };
+		B0D470872C46ED3A0082FE31 /* OverallParticipate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OverallParticipate.swift; sourceTree = "<group>"; };
+		B0D4708A2C477DBB0082FE31 /* Contract.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Contract.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -128,7 +140,8 @@
 				B05147E62C468FAF00861795 /* Onboarding.swift */,
 				B05147ED2C469ABC00861795 /* Buttons.swift */,
 				B05147F32C469CD700861795 /* CampaignCard.swift */,
-				B05147F62C46A0A500861795 /* CampaignExplained.swift */,
+				B050ECCF2C46E0C4008D0B8A /* OverallChart.swift */,
+				B0D470872C46ED3A0082FE31 /* OverallParticipate.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -147,6 +160,8 @@
 			children = (
 				B05147EA2C46900100861795 /* CompaignGallery.swift */,
 				B05147F92C46A1D700861795 /* MainTabView.swift */,
+				B05147F62C46A0A500861795 /* CampaignExplained.swift */,
+				B050ECCC2C46DC6B008D0B8A /* MyData.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -218,6 +233,7 @@
 			isa = PBXGroup;
 			children = (
 				B07A0DF42C466E63008C0DA1 /* Web3Index.swift */,
+				B0D4708A2C477DBB0082FE31 /* Contract.swift */,
 			);
 			path = Chain;
 			sourceTree = "<group>";
@@ -365,13 +381,17 @@
 				B07A0DC72C466667008C0DA1 /* ContentView.swift in Sources */,
 				B05147F52C469CD700861795 /* CampaignCard.swift in Sources */,
 				B05147E02C46845A00861795 /* HealthIntegration.swift in Sources */,
+				B050ECCE2C46DC6B008D0B8A /* MyData.swift in Sources */,
 				B05147F12C469B9400861795 /* Campaign.swift in Sources */,
 				B07A0DC92C466667008C0DA1 /* AppState.swift in Sources */,
 				B05147FB2C46A1D700861795 /* MainTabView.swift in Sources */,
 				B05147E72C468FAF00861795 /* Onboarding.swift in Sources */,
 				B07A0DF52C466E63008C0DA1 /* Web3Index.swift in Sources */,
 				B07A0DC52C466667008C0DA1 /* DataPunkApp.swift in Sources */,
+				B050ECD12C46E0C4008D0B8A /* OverallChart.swift in Sources */,
+				B0D4708B2C477DBB0082FE31 /* Contract.swift in Sources */,
 				B05147EB2C46900100861795 /* CompaignGallery.swift in Sources */,
+				B0D470882C46ED3A0082FE31 /* OverallParticipate.swift in Sources */,
 				B05147E32C46890600861795 /* StylePicker.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -388,16 +408,20 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B050ECD02C46E0C4008D0B8A /* OverallChart.swift in Sources */,
 				B07A0DE42C466668008C0DA1 /* DataPunkUITestsLaunchTests.swift in Sources */,
 				B05147EC2C46900100861795 /* CompaignGallery.swift in Sources */,
 				B05147F22C469B9400861795 /* Campaign.swift in Sources */,
 				B07A0DE22C466668008C0DA1 /* DataPunkUITests.swift in Sources */,
+				B0D4708C2C477DBB0082FE31 /* Contract.swift in Sources */,
 				B05147EF2C469ABC00861795 /* Buttons.swift in Sources */,
+				B050ECCD2C46DC6B008D0B8A /* MyData.swift in Sources */,
 				B05147E82C468FAF00861795 /* Onboarding.swift in Sources */,
 				B05147F82C46A0A500861795 /* CampaignExplained.swift in Sources */,
 				B05147E42C46890600861795 /* StylePicker.swift in Sources */,
 				B05147F42C469CD700861795 /* CampaignCard.swift in Sources */,
 				B05147FA2C46A1D700861795 /* MainTabView.swift in Sources */,
+				B0D470892C46ED3A0082FE31 /* OverallParticipate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

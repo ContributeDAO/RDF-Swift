@@ -10,9 +10,11 @@ import SwiftUI
 struct CompaignGallery: View {
     @State private var campaigns: [Campaign] = []
     
+    @Namespace() var namespace
+    
     let columns = [
-        GridItem(.flexible()),
-        GridItem(.flexible())
+        GridItem(.adaptive(minimum: 150, maximum: 500)),
+        GridItem(.adaptive(minimum: 150, maximum: 500)),
     ]
     
     var body: some View {
@@ -21,7 +23,13 @@ struct CompaignGallery: View {
                 VStack {
                     LazyVGrid(columns: columns, spacing: 10) {
                         ForEach(campaigns, id: \.title) { campaign in
-                            CampaignCard(campaign: campaign)
+                            NavigationLink {
+                                CampaignExplained(campaign: campaign)
+                                    .navigationTransition(.zoom(sourceID: campaign, in: namespace))
+                            } label: {
+                                CampaignCard(campaign: campaign)
+                            }
+                            .matchedTransitionSource(id: campaign, in: namespace)
                         }
                     }
                     .padding()
@@ -33,12 +41,14 @@ struct CompaignGallery: View {
                 }
             }
             .navigationTitle("活动")
+            .toolbarTitleDisplayMode(.inlineLarge)
             .toolbar {
-                ToolbarItem(placement: .navigationBarTrailing) {
+                ToolbarItem(placement: .topBarTrailing) {
                     Button(action: {
                         print("Filter button tapped")
                     }) {
                         Image(systemName: "line.horizontal.3.decrease.circle")
+                            .font(.title3)
                     }
                 }
             }

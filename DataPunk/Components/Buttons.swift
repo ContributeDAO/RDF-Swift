@@ -22,3 +22,16 @@ struct IntroLargeButtonStyle: ButtonStyle {
             .animation(.spring(), value: configuration.isPressed)
     }
 }
+
+struct ChevronButtonStyle: ButtonStyle {
+    func makeBody(configuration: Self.Configuration) -> some View {
+        HStack(alignment: .center) {
+            configuration.label
+                .padding(.horizontal, -5)
+            Image(systemName: "chevron.right")
+        }
+        .foregroundColor(.accentColor)
+        .font(.title2.weight(.medium))
+        .listRowSeparator(.hidden)
+    }
+}

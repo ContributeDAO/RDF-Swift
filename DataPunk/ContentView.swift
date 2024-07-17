@@ -37,17 +37,17 @@ struct ContentView: View {
                 }
                 Spacer()
                 Button("Next") {
-                    withAnimation {
-                        switch appState.experiencePhase {
-                        case .onboarding:
+                    switch appState.experiencePhase {
+                    case .onboarding:
+                        withAnimation {
                             appState.experiencePhase = .styleSelection
-                        case .styleSelection:
-                            appState.experiencePhase = .finished
-                        case .finished:
-                            appState.experiencePhase = .onboarding
                         }
-                        try! modelContext.save()
+                    case .styleSelection:
+                        appState.experiencePhase = .finished
+                    case .finished:
+                        appState.experiencePhase = .onboarding
                     }
+                    try! modelContext.save()
                 }
                 .buttonStyle(IntroLargeButtonStyle())
                 .sensoryFeedback(.increase, trigger: appState.experiencePhase)
