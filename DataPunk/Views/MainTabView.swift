@@ -14,9 +14,13 @@ struct MainTabView: View {
                 .tabItem {
                     Label("活动募集", systemImage: "flag.filled.and.flag.crossed")
                 }
+            MyStats()
+                .tabItem {
+                    Label("感知数据", systemImage: "person.and.background.dotted")
+                }
             MyData()
                 .tabItem {
-                    Label("我的数据", systemImage: "person.and.background.dotted")
+                    Label("我的贡献", systemImage: "person.and.background.dotted")
                 }
         }
     }

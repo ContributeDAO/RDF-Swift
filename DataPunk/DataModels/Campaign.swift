@@ -6,39 +6,59 @@
 //
 
 import Foundation
+import SwiftData
+import CryptoKit
 
-struct Campaign: Codable, Hashable {
-    let title: String
-    let themes: [String]
-    let description: String
-    let address: String
-    let creationDate: Date
-    let organization: String
+@Model
+final class Campaign: Decodable, Hashable {
+    var title: String
+    var themes: [String]
+    var subtitle: String
+    var address: String
+    var creationDate: String
+    var organization: String
+    var encryptionKey: String? = nil
     
-    init(from decoder: any Decoder) throws {
-        let container = try decoder.container(keyedBy: CodingKeys.self)
-        self.title = try container.decode(String.self, forKey: .title)
-        self.description = try container.decode(String.self, forKey: .description)
-        self.address = try container.decode(String.self, forKey: .address)
-        self.creationDate = try container.decode(Date.self, forKey: .creationDate)
-        self.organization = try container.decode(String.self, forKey: .organization)
-        self.themes = try container.decode([String].self, forKey: .themes)
-    }
     
     init(
         title: String,
         themes: [String],
         description: String,
         address: String,
-        creationDate: Date,
+        creationDate: String,
         organization: String
     ) {
         self.title = title
         self.themes = themes
-        self.description = description
+        self.subtitle = description
         self.address = address
         self.creationDate = creationDate
         self.organization = organization
+    }
+    
+    enum CodingKeys: String, CodingKey {
+        case title = "title"
+        case themes = "themes"
+        case description = "description"
+        case address = "address"
+        case creationDate = "creationDate"
+        case organization = "organization"
+    }
+    
+    init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        title = try container.decode(String.self, forKey: .title)
+        themes = try container.decode([String].self, forKey: .themes)
+        subtitle = try container.decode(String.self, forKey: .description)
+        address = try container.decode(String.self, forKey: .address)
+        creationDate = try container.decode(String.self, forKey: .creationDate)
+        organization = try container.decode(String.self, forKey: .organization)
+    }
+    
+    func participate() async throws {
+        // TODO: Write transcation code
+        encryptionKey = keyb64(SymmetricKey(size: .bits256))
+        //
     }
 }
 
@@ -79,12 +99,13 @@ func fetchCampaigns(filterBy themes: [String]? = nil) async -> [Campaign]? {
         guard let httpResponse = response as? HTTPURLResponse, httpResponse.statusCode == 200 else {
             throw URLError(.badServerResponse)
         }
-        let rawResult = try KVAPI.decoder.decode(KVAPI.WrappedCampaign.self, from: data).result.data(using: .utf8)
-        if let rawResult = rawResult {
-            allCampaigns = try KVAPI.decoder.decode([Campaign].self, from: rawResult)
-        } else {
-            print("Failed to decode campaigns")
-        }
+        let rawResult = try KVAPI.decoder.decode(KVAPI.WrappedCampaign.self, from: data).result
+        print(rawResult)
+//        if let rawResult = rawResult {
+            allCampaigns = try KVAPI.decoder.decode([Campaign].self, from: rawResult.data(using: .utf8)!)
+//        } else {
+//            print("Failed to decode campaigns")
+//        }
     } catch {
         print("Failed to fetch campaigns: \(error)")
     }
@@ -118,15 +139,6 @@ func fetchAvailableThemes() async -> [String]? {
 
 extension Campaign {
     static let mockData = [
-        Campaign(title: "Save the Rainforests", themes: ["Environmental"], description: "Join us in preserving diverse ecosystems and protecting the habitats of countless species living in the rainforests.", address: "123 Forest Rd, Amazon Basin", creationDate: Date(), organization: "Green Earth"),
-        Campaign(title: "Clean Water Initiative", themes: ["Environmental", "SocialJustice"], description: "Provide clean and safe drinking water to underserved communities around the globe.", address: "47 Water Stream Rd, Malawi", creationDate: Date(), organization: "H2Ope"),
-        Campaign(title: "Medical Aid for Remote Areas", themes: ["Medical"], description: "Deliver essential medical supplies and services to remote areas lacking adequate healthcare facilities.", address: "303 Remote Path, Nepal", creationDate: Date(), organization: "Health for All"),
-        Campaign(title: "Tech Education for Youth", themes: ["SocialJustice"], description: "Bridge the digital divide by providing underprivileged youth with access to technology education.", address: "202 Innovation Blvd, Silicon Valley", creationDate: Date(), organization: "Future Coders"),
-        Campaign(title: "Ocean Cleanup", themes: ["Environmental"], description: "Help remove plastics and other waste from our oceans to protect marine life and improve water quality.", address: "500 Coastal Area, Pacific Ocean", creationDate: Date(), organization: "Blue Waters"),
-        Campaign(title: "Renewable Energy Now", themes: ["Environmental"], description: "Accelerate the adoption of renewable energy by supporting solar and wind energy projects.", address: "750 Solar Park Ave, Morocco", creationDate: Date(), organization: "Energy Future"),
-        Campaign(title: "Equality and Justice", themes: ["SocialJustice"], description: "Promote equality and justice through legal aid, policy change, and public awareness campaigns.", address: "350 Justice Way, New York City", creationDate: Date(), organization: "Equal Rights"),
-        Campaign(title: "Disaster Relief Effort", themes: ["Medical", "SocialJustice"], description: "Provide immediate and ongoing support for areas affected by natural disasters.", address: "100 Emergency Ln, Indonesia", creationDate: Date(), organization: "Rapid Response"),
-        Campaign(title: "Wildlife Protection", themes: ["Environmental", "SocialJustice"], description: "Protect endangered species through conservation efforts and fight against illegal wildlife trafficking.", address: "800 Safari Zone, Kenya", creationDate: Date(), organization: "Wildlife Guardians"),
-        Campaign(title: "Community Recycling Projects", themes: ["Environmental", "SocialJustice"], description: "Educate communities about the benefits of recycling and set up local recycling projects.", address: "450 Recycle Rd, San Francisco", creationDate: Date(), organization: "Eco Warriors")
+        Campaign(title: "Save the Rainforests", themes: ["Environmental"], description: "Join us in preserving diverse ecosystems and protecting the habitats of countless species living in the rainforests.", address: "123 Forest Rd, Amazon Basin", creationDate: "Date()", organization: "Green Earth")
     ]
 }

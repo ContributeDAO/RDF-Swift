@@ -24,7 +24,7 @@ fileprivate func generateSecureRandomBytes() -> Data? {
     }
 }
 
-func createNewWallet() -> (address: String, privateKey: String)? {
+func createNewWallet(givenKey: String? = nil) -> (address: String, privateKey: String)? {
     let keychain = KeychainSwift()  // Initialize KeychainSwift
     do {
         // Generate a new private key
@@ -34,8 +34,10 @@ func createNewWallet() -> (address: String, privateKey: String)? {
         }
         _ = privateKey.toHexString()
         
+        let keyData = givenKey == nil ? privateKey : Data(from: givenKey!)!
+        
         // Initialize an Ethereum keystore with the new private key
-        guard let keystore = try EthereumKeystoreV3(privateKey: privateKey, password: "") else {
+        guard let keystore = try EthereumKeystoreV3(privateKey: keyData, password: "") else {
             print("Failed to create a new keystore")
             return nil
         }
@@ -61,7 +63,7 @@ func createNewWallet() -> (address: String, privateKey: String)? {
     }
 }
 
-func listAllKeys() -> [String] {
+func listPrivateKeys() -> [String] {
     let keychain = KeychainSwift()
     let allKeys = keychain.allKeys
     
@@ -74,20 +76,41 @@ func listAllKeys() -> [String] {
     return relevantKeys
 }
 
-func getPrivateKey(for key: String) -> String? {
+func getPrivateKey(for address: String) -> String? {
     let keychain = KeychainSwift()
-    return keychain.get(key)
+    return keychain.get(address)
+}
+
+// get private key with appendix sliced
+func getPrivateKeyAddress() -> String? {
+    return listPrivateKeys().first?.replacingOccurrences(of: "privateKey_", with: "")
 }
 
 func removePrivateKey(for address: String) {
     let keychain = KeychainSwift()
-    keychain.delete("privateKey_\(address)")
+    keychain.delete(address)
     print("Removed private key for address: \(address)")
+}
+
+func removeAllPrivateKeys() {
+    let keychain = KeychainSwift()
+    let allKeys = keychain.allKeys
+    for key in allKeys where key.starts(with: "privateKey_") {
+        keychain.delete(key)
+    }
+    print("Removed all private keys")
 }
 
 var web3: Web3?
 
 func initialiseWeb3() async -> String? {
+    if web3 != nil {
+        do {
+            return try await web3?.eth.blockNumber().hexString
+        } catch {
+            print("Error: \(error)")
+        }
+    }
     do {
         web3 = try await Web3.new(URL(string: ProcessInfo.processInfo.environment["INFURA_URL"]!)!)
         guard let web3 = web3 else {
@@ -96,6 +119,7 @@ func initialiseWeb3() async -> String? {
         }
         web3.addKeystoreManager(KeystoreManager.defaultManager)
         let block = try await web3.eth.blockNumber()
+        print("Block: \(block)")
         return block.hexString
     } catch {
         print("Error: \(error)")

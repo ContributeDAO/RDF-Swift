@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B0380AA72C48099A0098443E /* web3swift in Frameworks */ = {isa = PBXBuildFile; productRef = B0380AA62C48099A0098443E /* web3swift */; };
+		B0380AA92C48A8AA0098443E /* DataNFTContract.json in Resources */ = {isa = PBXBuildFile; fileRef = B0380AA82C48A8AA0098443E /* DataNFTContract.json */; };
+		B0380AAB2C48E1410098443E /* ChainProxy.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0380AAA2C48E1410098443E /* ChainProxy.swift */; };
+		B0380AAC2C48E1410098443E /* ChainProxy.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0380AAA2C48E1410098443E /* ChainProxy.swift */; };
 		B050ECCD2C46DC6B008D0B8A /* MyData.swift in Sources */ = {isa = PBXBuildFile; fileRef = B050ECCC2C46DC6B008D0B8A /* MyData.swift */; };
 		B050ECCE2C46DC6B008D0B8A /* MyData.swift in Sources */ = {isa = PBXBuildFile; fileRef = B050ECCC2C46DC6B008D0B8A /* MyData.swift */; };
 		B050ECD02C46E0C4008D0B8A /* OverallChart.swift in Sources */ = {isa = PBXBuildFile; fileRef = B050ECCF2C46E0C4008D0B8A /* OverallChart.swift */; };
@@ -36,13 +40,27 @@
 		B07A0DD82C466668008C0DA1 /* DataPunkTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B07A0DD72C466668008C0DA1 /* DataPunkTests.swift */; };
 		B07A0DE22C466668008C0DA1 /* DataPunkUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B07A0DE12C466668008C0DA1 /* DataPunkUITests.swift */; };
 		B07A0DE42C466668008C0DA1 /* DataPunkUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B07A0DE32C466668008C0DA1 /* DataPunkUITestsLaunchTests.swift */; };
-		B07A0DF22C4668A2008C0DA1 /* web3swift in Frameworks */ = {isa = PBXBuildFile; productRef = B07A0DF12C4668A2008C0DA1 /* web3swift */; };
 		B07A0DF52C466E63008C0DA1 /* Web3Index.swift in Sources */ = {isa = PBXBuildFile; fileRef = B07A0DF42C466E63008C0DA1 /* Web3Index.swift */; };
 		B0B490E92C46800D00B4B83C /* KeychainSwift in Frameworks */ = {isa = PBXBuildFile; productRef = B0B490E82C46800D00B4B83C /* KeychainSwift */; };
 		B0D470882C46ED3A0082FE31 /* OverallParticipate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0D470872C46ED3A0082FE31 /* OverallParticipate.swift */; };
 		B0D470892C46ED3A0082FE31 /* OverallParticipate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0D470872C46ED3A0082FE31 /* OverallParticipate.swift */; };
 		B0D4708B2C477DBB0082FE31 /* Contract.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0D4708A2C477DBB0082FE31 /* Contract.swift */; };
 		B0D4708C2C477DBB0082FE31 /* Contract.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0D4708A2C477DBB0082FE31 /* Contract.swift */; };
+		B0D4708E2C4790D70082FE31 /* Encryption.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0D4708D2C4790D70082FE31 /* Encryption.swift */; };
+		B0D4708F2C4790D70082FE31 /* Encryption.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0D4708D2C4790D70082FE31 /* Encryption.swift */; };
+		B0D470952C479C760082FE31 /* DocumentPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0D470942C479C760082FE31 /* DocumentPicker.swift */; };
+		B0D470962C479C760082FE31 /* DocumentPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0D470942C479C760082FE31 /* DocumentPicker.swift */; };
+		B0D470982C479FAF0082FE31 /* ReadAsset.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0D470972C479FAF0082FE31 /* ReadAsset.swift */; };
+		B0D470992C479FAF0082FE31 /* ReadAsset.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0D470972C479FAF0082FE31 /* ReadAsset.swift */; };
+		B0D4709B2C47A66B0082FE31 /* MyStats.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0D4709A2C47A66B0082FE31 /* MyStats.swift */; };
+		B0D4709C2C47A66B0082FE31 /* MyStats.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0D4709A2C47A66B0082FE31 /* MyStats.swift */; };
+		B0D4709E2C47C6FE0082FE31 /* SignContract.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0D4709D2C47C6FE0082FE31 /* SignContract.swift */; };
+		B0D4709F2C47C6FE0082FE31 /* SignContract.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0D4709D2C47C6FE0082FE31 /* SignContract.swift */; };
+		B0D470A12C47CCCA0082FE31 /* GPGContract.hex in Resources */ = {isa = PBXBuildFile; fileRef = B0D470A02C47CCCA0082FE31 /* GPGContract.hex */; };
+		B0D470A52C47CD5B0082FE31 /* GPGContract.json in Resources */ = {isa = PBXBuildFile; fileRef = B0D470A42C47CD5B0082FE31 /* GPGContract.json */; };
+		B0D470A72C47ED2E0082FE31 /* Test.json in Resources */ = {isa = PBXBuildFile; fileRef = B0D470A62C47ED210082FE31 /* Test.json */; };
+		B0E123782C491DF600E13F33 /* ImportKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0E123772C491DF600E13F33 /* ImportKey.swift */; };
+		B0E123792C491DF600E13F33 /* ImportKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0E123772C491DF600E13F33 /* ImportKey.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -63,6 +81,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		B0380AA82C48A8AA0098443E /* DataNFTContract.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = DataNFTContract.json; sourceTree = "<group>"; };
+		B0380AAA2C48E1410098443E /* ChainProxy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChainProxy.swift; sourceTree = "<group>"; };
 		B050ECCC2C46DC6B008D0B8A /* MyData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyData.swift; sourceTree = "<group>"; };
 		B050ECCF2C46E0C4008D0B8A /* OverallChart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OverallChart.swift; sourceTree = "<group>"; };
 		B05147DC2C4683DF00861795 /* DataPunk.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = DataPunk.entitlements; sourceTree = "<group>"; };
@@ -89,6 +109,16 @@
 		B07A0DF42C466E63008C0DA1 /* Web3Index.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Web3Index.swift; sourceTree = "<group>"; };
 		B0D470872C46ED3A0082FE31 /* OverallParticipate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OverallParticipate.swift; sourceTree = "<group>"; };
 		B0D4708A2C477DBB0082FE31 /* Contract.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Contract.swift; sourceTree = "<group>"; };
+		B0D4708D2C4790D70082FE31 /* Encryption.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Encryption.swift; sourceTree = "<group>"; };
+		B0D470942C479C760082FE31 /* DocumentPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentPicker.swift; sourceTree = "<group>"; };
+		B0D470972C479FAF0082FE31 /* ReadAsset.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReadAsset.swift; sourceTree = "<group>"; };
+		B0D4709A2C47A66B0082FE31 /* MyStats.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyStats.swift; sourceTree = "<group>"; };
+		B0D4709D2C47C6FE0082FE31 /* SignContract.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignContract.swift; sourceTree = "<group>"; };
+		B0D470A02C47CCCA0082FE31 /* GPGContract.hex */ = {isa = PBXFileReference; lastKnownFileType = text; path = GPGContract.hex; sourceTree = "<group>"; };
+		B0D470A42C47CD5B0082FE31 /* GPGContract.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = GPGContract.json; sourceTree = "<group>"; };
+		B0D470A62C47ED210082FE31 /* Test.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = Test.json; sourceTree = "<group>"; };
+		B0E123772C491DF600E13F33 /* ImportKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImportKey.swift; sourceTree = "<group>"; };
+		B0E1237A2C4921EC00E13F33 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -97,7 +127,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B0B490E92C46800D00B4B83C /* KeychainSwift in Frameworks */,
-				B07A0DF22C4668A2008C0DA1 /* web3swift in Frameworks */,
+				B0380AA72C48099A0098443E /* web3swift in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -142,6 +172,9 @@
 				B05147F32C469CD700861795 /* CampaignCard.swift */,
 				B050ECCF2C46E0C4008D0B8A /* OverallChart.swift */,
 				B0D470872C46ED3A0082FE31 /* OverallParticipate.swift */,
+				B0D470942C479C760082FE31 /* DocumentPicker.swift */,
+				B0D4709D2C47C6FE0082FE31 /* SignContract.swift */,
+				B0E123772C491DF600E13F33 /* ImportKey.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -162,6 +195,7 @@
 				B05147F92C46A1D700861795 /* MainTabView.swift */,
 				B05147F62C46A0A500861795 /* CampaignExplained.swift */,
 				B050ECCC2C46DC6B008D0B8A /* MyData.swift */,
+				B0D4709A2C47A66B0082FE31 /* MyStats.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -189,6 +223,9 @@
 		B07A0DC32C466667008C0DA1 /* DataPunk */ = {
 			isa = PBXGroup;
 			children = (
+				B0E1237A2C4921EC00E13F33 /* Info.plist */,
+				B0D470A32C47CD3B0082FE31 /* ByteCode */,
+				B0D470A22C47CD350082FE31 /* ABI */,
 				B05147E92C468FED00861795 /* Views */,
 				B05147E52C46894B00861795 /* DataModels */,
 				B05147E12C4688F400861795 /* Components */,
@@ -234,8 +271,29 @@
 			children = (
 				B07A0DF42C466E63008C0DA1 /* Web3Index.swift */,
 				B0D4708A2C477DBB0082FE31 /* Contract.swift */,
+				B0D470972C479FAF0082FE31 /* ReadAsset.swift */,
+				B0D4708D2C4790D70082FE31 /* Encryption.swift */,
+				B0380AAA2C48E1410098443E /* ChainProxy.swift */,
 			);
 			path = Chain;
+			sourceTree = "<group>";
+		};
+		B0D470A22C47CD350082FE31 /* ABI */ = {
+			isa = PBXGroup;
+			children = (
+				B0D470A62C47ED210082FE31 /* Test.json */,
+				B0D470A42C47CD5B0082FE31 /* GPGContract.json */,
+				B0380AA82C48A8AA0098443E /* DataNFTContract.json */,
+			);
+			path = ABI;
+			sourceTree = "<group>";
+		};
+		B0D470A32C47CD3B0082FE31 /* ByteCode */ = {
+			isa = PBXGroup;
+			children = (
+				B0D470A02C47CCCA0082FE31 /* GPGContract.hex */,
+			);
+			path = ByteCode;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -255,8 +313,8 @@
 			);
 			name = DataPunk;
 			packageProductDependencies = (
-				B07A0DF12C4668A2008C0DA1 /* web3swift */,
 				B0B490E82C46800D00B4B83C /* KeychainSwift */,
+				B0380AA62C48099A0098443E /* web3swift */,
 			);
 			productName = DataPunk;
 			productReference = B07A0DC12C466667008C0DA1 /* DataPunk.app */;
@@ -331,8 +389,8 @@
 			);
 			mainGroup = B07A0DB82C466667008C0DA1;
 			packageReferences = (
-				B07A0DF02C4668A2008C0DA1 /* XCRemoteSwiftPackageReference "web3swift" */,
 				B0B490E72C46800D00B4B83C /* XCRemoteSwiftPackageReference "keychain-swift" */,
+				B0380AA52C48099A0098443E /* XCRemoteSwiftPackageReference "web3swift" */,
 			);
 			productRefGroup = B07A0DC22C466667008C0DA1 /* Products */;
 			projectDirPath = "";
@@ -350,8 +408,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B0D470A52C47CD5B0082FE31 /* GPGContract.json in Resources */,
 				B07A0DCE2C466668008C0DA1 /* Preview Assets.xcassets in Resources */,
+				B0380AA92C48A8AA0098443E /* DataNFTContract.json in Resources */,
+				B0D470A12C47CCCA0082FE31 /* GPGContract.hex in Resources */,
 				B07A0DCB2C466668008C0DA1 /* Assets.xcassets in Resources */,
+				B0D470A72C47ED2E0082FE31 /* Test.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -376,10 +438,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B0D4709E2C47C6FE0082FE31 /* SignContract.swift in Sources */,
 				B05147F72C46A0A500861795 /* CampaignExplained.swift in Sources */,
 				B05147EE2C469ABC00861795 /* Buttons.swift in Sources */,
+				B0D470952C479C760082FE31 /* DocumentPicker.swift in Sources */,
 				B07A0DC72C466667008C0DA1 /* ContentView.swift in Sources */,
 				B05147F52C469CD700861795 /* CampaignCard.swift in Sources */,
+				B0E123792C491DF600E13F33 /* ImportKey.swift in Sources */,
+				B0380AAC2C48E1410098443E /* ChainProxy.swift in Sources */,
+				B0D4709C2C47A66B0082FE31 /* MyStats.swift in Sources */,
 				B05147E02C46845A00861795 /* HealthIntegration.swift in Sources */,
 				B050ECCE2C46DC6B008D0B8A /* MyData.swift in Sources */,
 				B05147F12C469B9400861795 /* Campaign.swift in Sources */,
@@ -388,6 +455,8 @@
 				B05147E72C468FAF00861795 /* Onboarding.swift in Sources */,
 				B07A0DF52C466E63008C0DA1 /* Web3Index.swift in Sources */,
 				B07A0DC52C466667008C0DA1 /* DataPunkApp.swift in Sources */,
+				B0D4708F2C4790D70082FE31 /* Encryption.swift in Sources */,
+				B0D470992C479FAF0082FE31 /* ReadAsset.swift in Sources */,
 				B050ECD12C46E0C4008D0B8A /* OverallChart.swift in Sources */,
 				B0D4708B2C477DBB0082FE31 /* Contract.swift in Sources */,
 				B05147EB2C46900100861795 /* CompaignGallery.swift in Sources */,
@@ -411,14 +480,21 @@
 				B050ECD02C46E0C4008D0B8A /* OverallChart.swift in Sources */,
 				B07A0DE42C466668008C0DA1 /* DataPunkUITestsLaunchTests.swift in Sources */,
 				B05147EC2C46900100861795 /* CompaignGallery.swift in Sources */,
+				B0D4708E2C4790D70082FE31 /* Encryption.swift in Sources */,
+				B0380AAB2C48E1410098443E /* ChainProxy.swift in Sources */,
 				B05147F22C469B9400861795 /* Campaign.swift in Sources */,
+				B0D4709F2C47C6FE0082FE31 /* SignContract.swift in Sources */,
+				B0D4709B2C47A66B0082FE31 /* MyStats.swift in Sources */,
 				B07A0DE22C466668008C0DA1 /* DataPunkUITests.swift in Sources */,
 				B0D4708C2C477DBB0082FE31 /* Contract.swift in Sources */,
 				B05147EF2C469ABC00861795 /* Buttons.swift in Sources */,
 				B050ECCD2C46DC6B008D0B8A /* MyData.swift in Sources */,
+				B0E123782C491DF600E13F33 /* ImportKey.swift in Sources */,
 				B05147E82C468FAF00861795 /* Onboarding.swift in Sources */,
 				B05147F82C46A0A500861795 /* CampaignExplained.swift in Sources */,
 				B05147E42C46890600861795 /* StylePicker.swift in Sources */,
+				B0D470982C479FAF0082FE31 /* ReadAsset.swift in Sources */,
+				B0D470962C479C760082FE31 /* DocumentPicker.swift in Sources */,
 				B05147F42C469CD700861795 /* CampaignCard.swift in Sources */,
 				B05147FA2C46A1D700861795 /* MainTabView.swift in Sources */,
 				B0D470892C46ED3A0082FE31 /* OverallParticipate.swift in Sources */,
@@ -573,6 +649,9 @@
 				DEVELOPMENT_TEAM = T57PLMJKEL;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = DataPunk/Info.plist;
+				INFOPLIST_KEY_NSHealthShareUsageDescription = "Contribute your stats measured by the device.";
+				INFOPLIST_KEY_NSHealthUpdateUsageDescription = "Contribute your stats measured by the device.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -603,6 +682,9 @@
 				DEVELOPMENT_TEAM = T57PLMJKEL;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = DataPunk/Info.plist;
+				INFOPLIST_KEY_NSHealthShareUsageDescription = "Contribute your stats measured by the device.";
+				INFOPLIST_KEY_NSHealthUpdateUsageDescription = "Contribute your stats measured by the device.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -735,12 +817,12 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		B07A0DF02C4668A2008C0DA1 /* XCRemoteSwiftPackageReference "web3swift" */ = {
+		B0380AA52C48099A0098443E /* XCRemoteSwiftPackageReference "web3swift" */ = {
 			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/web3swift-team/web3swift.git";
+			repositoryURL = "https://github.com/StevenRCE0/web3swift.git";
 			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 3.2.1;
+				branch = develop;
+				kind = branch;
 			};
 		};
 		B0B490E72C46800D00B4B83C /* XCRemoteSwiftPackageReference "keychain-swift" */ = {
@@ -754,9 +836,9 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		B07A0DF12C4668A2008C0DA1 /* web3swift */ = {
+		B0380AA62C48099A0098443E /* web3swift */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = B07A0DF02C4668A2008C0DA1 /* XCRemoteSwiftPackageReference "web3swift" */;
+			package = B0380AA52C48099A0098443E /* XCRemoteSwiftPackageReference "web3swift" */;
 			productName = web3swift;
 		};
 		B0B490E82C46800D00B4B83C /* KeychainSwift */ = {

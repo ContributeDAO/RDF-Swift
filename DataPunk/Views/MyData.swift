@@ -7,10 +7,15 @@
 
 import SwiftUI
 import SwiftData
+import Web3Core
+import web3swift
 
 struct MyData: View {
     @Environment(\.modelContext) private var modelContext
     @Query private var appStates: [AppState]
+    @State private var showPrivateKeyDialog = false
+    @State private var newPrivateKey: String = ""
+    @State private var balance: String = ""
     
     private var appState: AppState {
         if appStates.isEmpty {
@@ -57,6 +62,29 @@ struct MyData: View {
                         Button("Start over") {
                             appState.experiencePhase = .onboarding
                             try! modelContext.save()
+                        }
+                        Button(role: .destructive) {
+                            removeAllPrivateKeys()
+                        } label: {
+                            Text("Clear all keys")
+                        }
+                        // replace keys
+                        Button("Replace keys") {
+                            showPrivateKeyDialog = true
+                        }
+                        .sheet(isPresented: $showPrivateKeyDialog) {
+                            ImportKey(showPrivateKeyDialog: $showPrivateKeyDialog)
+                        }
+                        Button("My Balance \(balance)") {
+                            if let address = getPrivateKeyAddress() {
+                                let addr = EthereumAddress(from: address)
+                                Task {
+                                    let balanceUint = try await web3?.eth.getBalance(for: addr!)
+                                    if let balance = balanceUint {
+                                        self.balance = balance.description
+                                    }
+                                }
+                            }
                         }
                     }
                 }

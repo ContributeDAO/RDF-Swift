@@ -15,7 +15,7 @@ struct CampaignCard: View {
             Text(campaign.title)
                 .font(.headline)
                 .foregroundColor(.primary)
-            Text(campaign.description)
+            Text(campaign.subtitle)
                 .font(.subheadline)
                 .foregroundColor(.secondary)
                 .lineLimit(3)

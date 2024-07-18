@@ -28,6 +28,9 @@ struct DataPunkApp: App {
             ContentView()
                 .onAppear {
                     _ = HealthIntegration.shared
+                    Task {
+                        _ = await initialiseWeb3()
+                    }
                 }
         }
         .modelContainer(sharedModelContainer)

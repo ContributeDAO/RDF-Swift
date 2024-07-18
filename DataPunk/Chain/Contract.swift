@@ -8,50 +8,59 @@
 import Foundation
 import web3swift
 import Web3Core
-
+import UniformTypeIdentifiers
 import CryptoKit
 
-struct ManagedContract {
+class ManagedContract {
     let address: EthereumAddress
+    let walletAddress: EthereumAddress
     var contract: Web3.Contract?
     
     enum ContractError: Error {
-        case invalidAddress
+        case invalidAddress, abiNotFound, deploymentFailed, invalidOperation, invalidResult
     }
     
-    init(address: String) throws {
-        guard let ethAddress = EthereumAddress(address) else {
+    init(address contractAddress: String, walletAddress: String? = nil) throws {
+        guard let result = EthereumAddress(contractAddress) else {
             throw ContractError.invalidAddress
         }
         
-        self.address = ethAddress
+        self.address = result
+        if listPrivateKeys().isEmpty {
+            throw Web3Error.walletError
+        }
+        let walletString = walletAddress ?? getPrivateKeyAddress()
+        let walletAddressE = EthereumAddress(walletString!)
+        if walletAddressE == nil {
+            throw ContractError.invalidAddress
+        }
+        self.walletAddress = walletAddressE!
     }
     
-    func loadContract() -> Web3.Contract? {
+    func loadContract() throws {
         guard let web3 = web3 else {
-            return nil
+            throw Web3Error.walletError
         }
-        return web3.contract(Web3.Utils.erc20ABI, at: address)!
+        contract = web3.contract(readABIString(named: "DataNFTContract")!, at: address)
     }
-}
-
-/*encryptFile*/
-func encryptFile(atPath path: String, using key: SymmetricKey, outputPath: String) throws {
-    let data = try Data(contentsOf: URL(fileURLWithPath: path))
-    let sealedBox = try AES.GCM.seal(data, using: key)
-    let encryptedData = sealedBox.combined
-
-    try encryptedData.write(to: URL(fileURLWithPath: outputPath))
-}
-
-/*decryptFile*/
-func decryptFile(atPath path: String, using key: SymmetricKey, outputDecryptedPath: String) throws {
-    let encryptedData = try Data(contentsOf: URL(fileURLWithPath: path))
-    let nonce = try AES.GCM.Nonce(data: encryptedData.prefix(12))
-    let ciphertext = encryptedData.suffix(from: encryptedData.index(encryptedData.startIndex, offsetBy: 12))
-    let sealedBox = try AES.GCM.SealedBox(combined: encryptedData)
-    let decryptedData = try AES.GCM.open(sealedBox, using: key)
-
-    try decryptedData.write(to: URL(fileURLWithPath: outputDecryptedPath))
-    print("Decrypted file saved to \(outputDecryptedPath)")
+    
+    func readCredit() async throws -> Float {
+        // Ensure web3 instance is available
+        guard let web3 = web3 else {
+            throw Web3Error.walletError
+        }
+        
+        // Attempt to load the contract if not already loaded
+        if contract == nil {
+            try loadContract()  // Ensure this function either throws correctly, or is awaited if async
+        }
+        
+        print("Reading credit")
+        
+        return try await Float(ChainProxy().readContract(.init(contractAddress: address.address, method: "totalSupply", params: []))) ?? .nan
+        
+//        if let operation = contract?.createReadOperation("totalSupply", parameters: [], extraData: Data()) {
+//        }
+        
+    }
 }

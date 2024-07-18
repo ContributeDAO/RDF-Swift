@@ -8,17 +8,31 @@
 import SwiftUI
 
 struct Onboarding: View {
+    @State var privateKey: String? = nil
+    @State var importingPrivateKey = false
+    
     var body: some View {
         Text("建立你的身份凭证")
             .font(.largeTitle)
             .bold()
         Spacer()
-        if listAllKeys().isEmpty {
-            Button("添加一个密钥") {
-                _ = createNewWallet()
+        if privateKey == nil {
+            VStack {
+                Button("添加一个密钥") {
+                    Task {
+                        _ = createNewWallet()
+                        privateKey = getPrivateKeyAddress()
+                    }
+                }
+                .font(.title)
+                .buttonStyle(BorderedButtonStyle())
+                Button("导入一个密钥") {
+                    importingPrivateKey = true
+                }
+                .sheet(isPresented: $importingPrivateKey) {
+                    ImportKey(showPrivateKeyDialog: $importingPrivateKey)
+                }
             }
-            .font(.title)
-            .buttonStyle(BorderedButtonStyle())
         } else {
             Image(systemName: "checkmark.seal")
                 .font(.largeTitle)

@@ -7,8 +7,24 @@
 
 import SwiftUI
 
+func removeFractionalSeconds(from dateString: String) -> String {
+    let pattern = "\\.\\d{3}Z"
+    let regex = try! NSRegularExpression(pattern: pattern)
+    let range = NSRange(location: 0, length: dateString.utf16.count)
+    return regex.stringByReplacingMatches(in: dateString, options: [], range: range, withTemplate: "Z")
+}
+
 struct CampaignExplained: View {
     @State var campaign: Campaign
+    
+    var dateString: String {
+        do {
+            let date = try Date(removeFractionalSeconds(from: campaign.creationDate), strategy: .iso8601)
+            return date.formatted()
+        } catch {
+            return "未知"
+        }
+    }
 
     var body: some View {
         ScrollView {
@@ -25,7 +41,7 @@ struct CampaignExplained: View {
                     .padding(.horizontal)
 
                 // Description
-                Text(campaign.description)
+                Text(campaign.subtitle)
                     .font(.title3)
                     .fontWeight(.semibold)
                     .padding(.horizontal)
@@ -83,7 +99,7 @@ struct CampaignExplained: View {
                     .font(.title3)
                     .fontWeight(.semibold)
                     .padding(.horizontal)
-                Text(campaign.creationDate, style: .date)
+                Text(dateString)
                     .font(.body)
                     .padding(.horizontal)
                 
