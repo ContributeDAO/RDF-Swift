@@ -70,7 +70,7 @@ struct ChainProxy {
         
         assert(!privateKey.isEmpty)
         
-        var request = URLRequest(url: readURL)
+        var request = URLRequest(url: writeURL)
         request.httpMethod = "POST"
         request.httpBody = try JSONSerialization.data(withJSONObject: ["privateKey": privateKey, "contractAddress": properties.contractAddress, "method": properties.method, "params": properties.params])
 
