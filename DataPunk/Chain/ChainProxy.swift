@@ -72,7 +72,7 @@ struct ChainProxy {
         
         var request = URLRequest(url: writeURL)
         request.httpMethod = "POST"
-        request.httpBody = try JSONSerialization.data(withJSONObject: ["privateKey": privateKey, "contractAddress": properties.contractAddress, "method": properties.method, "params": properties.params])
+        request.httpBody = try JSONSerialization.data(withJSONObject: ["privateKey": privateKey, "contractAddress": properties.contractAddress, "method": properties.method, "params": properties.params, "address": getPrivateKeyAddress()!])
 
         let (data, _) = try await URLSession.shared.data(for: request)
         let response = try JSONDecoder().decode(ReadTransactionResponse.self, from: data)
