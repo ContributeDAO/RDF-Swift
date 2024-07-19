@@ -126,6 +126,11 @@ struct MyStats: View {
                                 let data = try! JSONEncoder().encode(dataSet)
                                 print(data)
                                 uploadDocument = HealthIntegration.shared.shareData(data, encryptionKey: encryptionKey)
+                                Task {
+                                    let key = keyb64(encryptionKey)
+                                    // MARK: The contract arbitary
+                                    try await _ = ChainProxy().writeContract(.init(contractAddress: "0xE40A54Ab449fd2F3d702f6430f76d966Fb97B66E", method: "contributeData", params: [Date.now.ISO8601Format(), key]))
+                                }
                             } label: {
                                 if !uploading {
                                     Image(systemName: "arrow.up.circle.fill")
