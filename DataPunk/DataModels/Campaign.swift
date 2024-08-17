@@ -8,30 +8,46 @@
 import Foundation
 import SwiftData
 import CryptoKit
+import BigInt
 
 @Model
 final class Campaign: Decodable, Hashable {
     var title: String
-    var themes: [String]
+    var themes: [String] = []
     var subtitle: String
-    var address: String
+    var id: String
     var creationDate: String
     var organization: String
     var encryptionKey: String? = nil
+    var joinStatus: JoinStatus.RawValue = JoinStatus.new.rawValue
     
+    enum JoinStatus: String, Codable {
+        case new
+        case joined
+        case rejected
+    }
+    
+    struct JSONBigNumber: Decodable {
+        var type: String
+        var hex: String
+    }
+    
+    var idBigInt: BigInt {
+        BigInt(id.hexadecimal! as Data)
+    }
     
     init(
         title: String,
         themes: [String],
         description: String,
-        address: String,
+        id: String,
         creationDate: String,
         organization: String
     ) {
         self.title = title
         self.themes = themes
         self.subtitle = description
-        self.address = address
+        self.id = id
         self.creationDate = creationDate
         self.organization = organization
     }
@@ -40,7 +56,7 @@ final class Campaign: Decodable, Hashable {
         case title = "title"
         case themes = "themes"
         case description = "description"
-        case address = "address"
+        case id = "id"
         case creationDate = "creationDate"
         case organization = "organization"
     }
@@ -50,15 +66,34 @@ final class Campaign: Decodable, Hashable {
         title = try container.decode(String.self, forKey: .title)
         themes = try container.decode([String].self, forKey: .themes)
         subtitle = try container.decode(String.self, forKey: .description)
-        address = try container.decode(String.self, forKey: .address)
+        let idObject = try container.decode(JSONBigNumber.self, forKey: .id)
+        id = idObject.hex
         creationDate = try container.decode(String.self, forKey: .creationDate)
         organization = try container.decode(String.self, forKey: .organization)
     }
     
-    func participate() async throws {
-        // TODO: Write transcation code
-        encryptionKey = keyb64(SymmetricKey(size: .bits256))
-        //
+    func participate(context: ModelContext) throws {
+        let campaign = try getItselfInDatabase(context: context)
+        campaign.encryptionKey = keyb64(SymmetricKey(size: .bits256))
+        campaign.joinStatus = JoinStatus.joined.rawValue
+        try context.save()
+    }
+    
+    func reject(context: ModelContext) throws {
+        let campaign = try getItselfInDatabase(context: context)
+        campaign.joinStatus = JoinStatus.rejected.rawValue
+        try context.save()
+    }
+    
+    func getItselfInDatabase(context: ModelContext) throws -> Campaign {
+        let filter = #Predicate<Campaign> { campaign in
+            campaign.id == id
+        }
+        let campaign = try context.fetch(.init(predicate: filter))
+        if campaign.isEmpty {
+            context.insert(self)
+        }
+        return try! campaign.first ?? getItselfInDatabase(context: context)
     }
 }
 
@@ -101,11 +136,11 @@ func fetchCampaigns(filterBy themes: [String]? = nil) async -> [Campaign]? {
         }
         let rawResult = try KVAPI.decoder.decode(KVAPI.WrappedCampaign.self, from: data).result
         print(rawResult)
-//        if let rawResult = rawResult {
-            allCampaigns = try KVAPI.decoder.decode([Campaign].self, from: rawResult.data(using: .utf8)!)
-//        } else {
-//            print("Failed to decode campaigns")
-//        }
+        //        if let rawResult = rawResult {
+        allCampaigns = try KVAPI.decoder.decode([Campaign].self, from: rawResult.data(using: .utf8)!)
+        //        } else {
+        //            print("Failed to decode campaigns")
+        //        }
     } catch {
         print("Failed to fetch campaigns: \(error)")
     }
@@ -139,6 +174,6 @@ func fetchAvailableThemes() async -> [String]? {
 
 extension Campaign {
     static let mockData = [
-        Campaign(title: "Save the Rainforests", themes: ["Environmental"], description: "Join us in preserving diverse ecosystems and protecting the habitats of countless species living in the rainforests.", address: "123 Forest Rd, Amazon Basin", creationDate: "Date()", organization: "Green Earth")
+        Campaign(title: "Save the Rainforests", themes: ["Environmental"], description: "Join us in preserving diverse ecosystems and protecting the habitats of countless species living in the rainforests.", id: "123 Forest Rd, Amazon Basin", creationDate: "Date()", organization: "Green Earth")
     ]
 }

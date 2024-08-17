@@ -21,18 +21,19 @@ struct CompaignGallery: View {
         NavigationStack {
             ScrollView {
                 VStack {
-                    LazyVGrid(columns: columns, spacing: 10) {
+                    LazyVGrid(columns: columns) {
                         ForEach(campaigns, id: \.title) { campaign in
                             NavigationLink {
                                 CampaignExplained(campaign: campaign)
                                     .navigationTransition(.zoom(sourceID: campaign, in: namespace))
                             } label: {
                                 CampaignCard(campaign: campaign)
+                                    .shadow(radius: 3, y: 1)
+                                    .padding()
                             }
                             .matchedTransitionSource(id: campaign, in: namespace)
                         }
                     }
-                    .padding()
                 }
             }
             .refreshable {

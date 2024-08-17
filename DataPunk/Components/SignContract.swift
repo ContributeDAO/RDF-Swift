@@ -35,8 +35,7 @@ struct SignContract: View {
             Button {
                 Task {
                     do {
-                        try contract?.loadContract()
-                        signError = try await String(contract?.readCredit() ?? .nan)
+                        signError = try await String(contract?.getDataPunkCoinInterAddress() ?? "No address")
                     } catch {
                         DispatchQueue.main.async {
                             signError = "Failed to sign contract \(error)"
@@ -44,7 +43,7 @@ struct SignContract: View {
                     }
                 }
             } label: {
-                Text("Read Credit")
+                Text("Get Address")
             }
         }
     }

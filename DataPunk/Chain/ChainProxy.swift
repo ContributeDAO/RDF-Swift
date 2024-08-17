@@ -8,8 +8,8 @@
 import Foundation
 import Web3Core
 
-struct ReadContractRequest: Encodable {
-    var contractAddress: String
+struct CallContractRequest: Encodable {
+    var contractAddress: String = dataPunkAddress
     var method: String
     var params: [String]
 }
@@ -40,7 +40,7 @@ struct ChainProxy {
     let readURL = URL(string: "\(proxyBaseURL)/call")!
     let writeURL = URL(string: "\(proxyBaseURL)/send")!
     
-    func readContract(_ properties: ReadContractRequest) async throws -> String {
+    func readContract(_ properties: CallContractRequest) async throws -> String {
         // Ensure keychain has a private key
         var privateKey: String = ""
         guard let index = listPrivateKeys().first else {
@@ -57,10 +57,12 @@ struct ChainProxy {
         let (data, _) = try await URLSession.shared.data(for: request)
         let response = try JSONDecoder().decode(ReadContractResponse.self, from: data)
         
+        print("ChainProxy:", response)
+        
         return response.receipt
     }
     
-    func writeContract(_ properties: ReadContractRequest) async throws -> String {
+    func writeContract(_ properties: CallContractRequest) async throws -> String {
         // Ensure keychain has a private key
         var privateKey: String = ""
         guard let index = listPrivateKeys().first else {
@@ -76,6 +78,8 @@ struct ChainProxy {
 
         let (data, _) = try await URLSession.shared.data(for: request)
         let response = try JSONDecoder().decode(ReadTransactionResponse.self, from: data)
+        
+        print("ChainProxy:", response)
         
         return response.receipt.transactionHash
     }

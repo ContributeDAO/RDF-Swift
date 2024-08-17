@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import SwiftData
 import HealthKit
 import CryptoKit
 
@@ -16,12 +17,23 @@ struct MyStats: View {
     @State var heartRateSet: [Date: Int] = [:]
     @State var uploadDocument: Data? = nil
     
+    @Query private var campaigns: [Campaign]
+    @Query private var joinedCampaigns: [Campaign]
+    
     var stepSum: Int {
         stepSet.values.reduce(0, +)
     }
     
     var hearRateAverage: Int {
         heartRateSet.values.reduce(0, +) / heartRateSet.count
+    }
+    
+    init() {
+        let joinedStatus = Campaign.JoinStatus.joined.rawValue
+        let filter = #Predicate<Campaign> { campaign in
+            campaign.joinStatus == joinedStatus
+        }
+        _joinedCampaigns = Query(filter: filter)
     }
     
     var body: some View {
@@ -102,12 +114,12 @@ struct MyStats: View {
                                 }
                             }
                         }
-                        VStack {
-                            DocumentPicker(key: $encryptionKey)
-                            SignContract(contractAddress: "0x28b254d742a84F72Cf0e41E436ae0b65353b78b9")
-                        }
-                        .padding()
                     }
+                    VStack {
+                        DocumentPicker(key: $encryptionKey)
+//                        SignContract(contractAddress: "0x28b254d742a84F72Cf0e41E436ae0b65353b78b9")
+                    }
+                    .padding()
                 }
                 .navigationTitle("感知")
                 .toolbarTitleDisplayMode(.inlineLarge)
@@ -129,7 +141,11 @@ struct MyStats: View {
                                 Task {
                                     let key = keyb64(encryptionKey)
                                     // MARK: The contract arbitary
-                                    try await _ = ChainProxy().writeContract(.init(contractAddress: "0xE40A54Ab449fd2F3d702f6430f76d966Fb97B66E", method: "contributeData", params: [Date.now.ISO8601Format(), key]))
+                                    print("uploading campaign count:", joinedCampaigns.count)
+                                    for joinedCampaign in joinedCampaigns {
+                                        print("uploading to \(joinedCampaign.id)")
+                                        try await _ = ChainProxy().writeContract(.init(method: "uploadDataset", params: [joinedCampaign.id]))
+                                    }
                                 }
                             } label: {
                                 if !uploading {

@@ -17,16 +17,21 @@ struct Onboarding: View {
             .bold()
         Spacer()
         if privateKey == nil {
-            VStack {
-                Button("添加一个密钥") {
+            VStack(spacing: 30) {
+                Button("我们帮你搞定") {
                     Task {
                         _ = createNewWallet()
                         privateKey = getPrivateKeyAddress()
                     }
                 }
+                .padding()
+                .containerRelativeFrame(.horizontal, {width, _ in width * 0.8})
                 .font(.title)
-                .buttonStyle(BorderedButtonStyle())
-                Button("导入一个密钥") {
+                .background(Color.black)
+                .foregroundColor(.white)
+                .clipShape(RoundedRectangle(cornerSize: .init(width: 20, height: 20), style: .continuous))
+                .shadow(radius: 5, y: 3)
+                Button("点这里导入一个密钥") {
                     importingPrivateKey = true
                 }
                 .sheet(isPresented: $importingPrivateKey) {

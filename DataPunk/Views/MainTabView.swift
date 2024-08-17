@@ -20,7 +20,7 @@ struct MainTabView: View {
                 }
             MyData()
                 .tabItem {
-                    Label("我的贡献", systemImage: "person.and.background.dotted")
+                    Label("我的贡献", systemImage: "hands.and.sparkles")
                 }
         }
     }

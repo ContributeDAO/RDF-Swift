@@ -13,6 +13,8 @@ struct DataPunkApp: App {
     var sharedModelContainer: ModelContainer = {
         let schema = Schema([
             AppState.self,
+            Campaign.self,
+            DataPublished.self
         ])
         let modelConfiguration = ModelConfiguration(schema: schema, isStoredInMemoryOnly: false)
 
@@ -26,6 +28,7 @@ struct DataPunkApp: App {
     var body: some Scene {
         WindowGroup {
             ContentView()
+                .environmentObject(DeviceCheckModel())
                 .onAppear {
                     _ = HealthIntegration.shared
                     Task {
