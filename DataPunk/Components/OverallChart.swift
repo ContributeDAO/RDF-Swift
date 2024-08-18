@@ -1,49 +1,39 @@
-//
-//  OverallChart.swift
-//  DataPunk
-//
-//  Created by 砚渤 on 2024/7/17.
-//
-
 import SwiftUI
 import Charts
 
 // Define a struct to hold your data
-struct ToyShape: Identifiable {
-    var color: String
+struct HealthData: Identifiable {
+    var category: String
     var type: String
-    var count: Double
+    var value: Double
     var id = UUID()
 }
 
-// Sample data
-var stackedBarData: [ToyShape] = [
-    .init(color: "Green", type: "Cube", count: 2),
-    .init(color: "Green", type: "Sphere", count: 0),
-    .init(color: "Green", type: "Pyramid", count: 1),
-    .init(color: "Purple", type: "Cube", count: 1),
-    .init(color: "Purple", type: "Sphere", count: 1),
-    .init(color: "Purple", type: "Pyramid", count: 1),
-    .init(color: "Pink", type: "Cube", count: 1),
-    .init(color: "Pink", type: "Sphere", count: 2),
-    .init(color: "Pink", type: "Pyramid", count: 0),
-    .init(color: "Yellow", type: "Cube", count: 1),
-    .init(color: "Yellow", type: "Sphere", count: 1),
-    .init(color: "Yellow", type: "Pyramid", count: 2)
+// Sample data for steps, heart rate, sleep, and activities
+var healthData: [HealthData] = [
+    .init(category: "Steps", type: "Activity A", value: 50),
+    .init(category: "Steps", type: "Activity B", value: 65),
+    .init(category: "Steps", type: "Activity C", value: 80),
+    .init(category: "Heart Rate", type: "Activity A", value: 70),
+    .init(category: "Heart Rate", type: "Activity B", value: 75),
+    .init(category: "Heart Rate", type: "Activity C", value: 65),
+    .init(category: "Sleep", type: "Activity A", value: 70),
+    .init(category: "Sleep", type: "Activity B", value: 60),
+    .init(category: "Sleep", type: "Activity C", value: 80)
 ]
 
 struct OverallChart: View {
-
     var body: some View {
         Chart {
-            ForEach(stackedBarData) { shape in
+            ForEach(healthData) { data in
                 BarMark(
-                    x: .value("Shape Type", shape.type),
-                    y: .value("Total Count", shape.count)
+                    x: .value("Activity Type", data.type),
+                    y: .value("Value", data.value)
                 )
-                .foregroundStyle(by: .value("Shape Color", shape.color))
+                .foregroundStyle(by: .value("Category", data.category))
             }
         }
+        .chartLegend(position: .top)
     }
 }
 

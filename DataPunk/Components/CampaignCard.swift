@@ -20,6 +20,8 @@ struct CampaignCard: View {
                 .foregroundColor(.secondary)
                 .lineLimit(3)
         }
+        .aspectRatio(1.5, contentMode: .fill)
+        .frame(maxWidth: .infinity, alignment: .leading)
         .padding()
         .background(
             ZStack {

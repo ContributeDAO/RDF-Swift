@@ -53,6 +53,11 @@
 		B08FD71B2C712595002B391C /* DataPublished.swift in Sources */ = {isa = PBXBuildFile; fileRef = B08FD71A2C712595002B391C /* DataPublished.swift */; };
 		B08FD71C2C712595002B391C /* DataPublished.swift in Sources */ = {isa = PBXBuildFile; fileRef = B08FD71A2C712595002B391C /* DataPublished.swift */; };
 		B08FD71D2C712595002B391C /* DataPublished.swift in Sources */ = {isa = PBXBuildFile; fileRef = B08FD71A2C712595002B391C /* DataPublished.swift */; };
+		B08FD7342C716283002B391C /* StatCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = B08FD7332C716283002B391C /* StatCard.swift */; };
+		B08FD7352C716283002B391C /* StatCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = B08FD7332C716283002B391C /* StatCard.swift */; };
+		B08FD7372C716291002B391C /* Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = B08FD7362C716291002B391C /* Date.swift */; };
+		B08FD7382C716291002B391C /* Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = B08FD7362C716291002B391C /* Date.swift */; };
+		B08FD7392C716291002B391C /* Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = B08FD7362C716291002B391C /* Date.swift */; };
 		B0B490E92C46800D00B4B83C /* KeychainSwift in Frameworks */ = {isa = PBXBuildFile; productRef = B0B490E82C46800D00B4B83C /* KeychainSwift */; };
 		B0D470882C46ED3A0082FE31 /* OverallParticipate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0D470872C46ED3A0082FE31 /* OverallParticipate.swift */; };
 		B0D470892C46ED3A0082FE31 /* OverallParticipate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0D470872C46ED3A0082FE31 /* OverallParticipate.swift */; };
@@ -120,6 +125,8 @@
 		B08FD7112C709169002B391C /* DeviceCheck.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceCheck.swift; sourceTree = "<group>"; };
 		B08FD7162C70F6C5002B391C /* String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
 		B08FD71A2C712595002B391C /* DataPublished.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataPublished.swift; sourceTree = "<group>"; };
+		B08FD7332C716283002B391C /* StatCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatCard.swift; sourceTree = "<group>"; };
+		B08FD7362C716291002B391C /* Date.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Date.swift; sourceTree = "<group>"; };
 		B0D470872C46ED3A0082FE31 /* OverallParticipate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OverallParticipate.swift; sourceTree = "<group>"; };
 		B0D4708A2C477DBB0082FE31 /* Contract.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Contract.swift; sourceTree = "<group>"; };
 		B0D4708D2C4790D70082FE31 /* Encryption.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Encryption.swift; sourceTree = "<group>"; };
@@ -187,6 +194,7 @@
 				B0D4709D2C47C6FE0082FE31 /* SignContract.swift */,
 				B0E123772C491DF600E13F33 /* ImportKey.swift */,
 				B08FD70D2C6FB7E5002B391C /* DeviceCheckView.swift */,
+				B08FD7332C716283002B391C /* StatCard.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -294,6 +302,7 @@
 		B08FD7152C70F6B9002B391C /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				B08FD7362C716291002B391C /* Date.swift */,
 				B08FD7162C70F6C5002B391C /* String.swift */,
 			);
 			path = Extensions;
@@ -447,6 +456,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B0D4709E2C47C6FE0082FE31 /* SignContract.swift in Sources */,
+				B08FD7392C716291002B391C /* Date.swift in Sources */,
 				B05147F72C46A0A500861795 /* CampaignExplained.swift in Sources */,
 				B08FD7132C709169002B391C /* DeviceCheck.swift in Sources */,
 				B08FD7172C70F6C5002B391C /* String.swift in Sources */,
@@ -464,6 +474,7 @@
 				B05147F12C469B9400861795 /* Campaign.swift in Sources */,
 				B07A0DC92C466667008C0DA1 /* AppState.swift in Sources */,
 				B05147FB2C46A1D700861795 /* MainTabView.swift in Sources */,
+				B08FD7342C716283002B391C /* StatCard.swift in Sources */,
 				B05147E72C468FAF00861795 /* Onboarding.swift in Sources */,
 				B07A0DF52C466E63008C0DA1 /* Web3Index.swift in Sources */,
 				B07A0DC52C466667008C0DA1 /* DataPunkApp.swift in Sources */,
@@ -482,6 +493,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B08FD7102C6FB7E5002B391C /* DeviceCheckView.swift in Sources */,
+				B08FD7382C716291002B391C /* Date.swift in Sources */,
 				B08FD71D2C712595002B391C /* DataPublished.swift in Sources */,
 				B07A0DD82C466668008C0DA1 /* DataPunkTests.swift in Sources */,
 				B08FD7192C70F6C5002B391C /* String.swift in Sources */,
@@ -498,6 +510,7 @@
 				B05147EC2C46900100861795 /* CompaignGallery.swift in Sources */,
 				B0D4708E2C4790D70082FE31 /* Encryption.swift in Sources */,
 				B08FD70E2C6FB7E5002B391C /* DeviceCheckView.swift in Sources */,
+				B08FD7352C716283002B391C /* StatCard.swift in Sources */,
 				B0380AAB2C48E1410098443E /* ChainProxy.swift in Sources */,
 				B08FD7182C70F6C5002B391C /* String.swift in Sources */,
 				B05147F22C469B9400861795 /* Campaign.swift in Sources */,
@@ -517,6 +530,7 @@
 				B08FD71C2C712595002B391C /* DataPublished.swift in Sources */,
 				B05147FA2C46A1D700861795 /* MainTabView.swift in Sources */,
 				B0D470892C46ED3A0082FE31 /* OverallParticipate.swift in Sources */,
+				B08FD7372C716291002B391C /* Date.swift in Sources */,
 				B08FD7122C709169002B391C /* DeviceCheck.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -12,29 +12,23 @@ struct CompaignGallery: View {
     
     @Namespace() var namespace
     
-    let columns = [
-        GridItem(.adaptive(minimum: 150, maximum: 500)),
-        GridItem(.adaptive(minimum: 150, maximum: 500)),
-    ]
-    
     var body: some View {
         NavigationStack {
             ScrollView {
-                VStack {
-                    LazyVGrid(columns: columns) {
-                        ForEach(campaigns, id: \.title) { campaign in
-                            NavigationLink {
-                                CampaignExplained(campaign: campaign)
-                                    .navigationTransition(.zoom(sourceID: campaign, in: namespace))
-                            } label: {
-                                CampaignCard(campaign: campaign)
-                                    .shadow(radius: 3, y: 1)
-                                    .padding()
-                            }
-                            .matchedTransitionSource(id: campaign, in: namespace)
+                VStack(spacing: 10) {
+                    ForEach(campaigns, id: \.title) { campaign in
+                        NavigationLink {
+                            CampaignExplained(campaign: campaign)
+                                .navigationTransition(.zoom(sourceID: campaign, in: namespace))
+                        } label: {
+                            CampaignCard(campaign: campaign)
+                                .matchedTransitionSource(id: campaign, in: namespace)
                         }
+                        .shadow(radius: 3, y: 1)
+                        
                     }
                 }
+                .padding()
             }
             .refreshable {
                 if let fetchedCampaigns = await fetchCampaigns() {

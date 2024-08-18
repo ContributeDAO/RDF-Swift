@@ -7,8 +7,6 @@
 
 import SwiftUI
 
-import SwiftUI
-
 struct IntroLargeButtonStyle: ButtonStyle {
     func makeBody(configuration: Self.Configuration) -> some View {
         configuration.label

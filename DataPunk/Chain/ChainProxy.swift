@@ -6,7 +6,7 @@
 //
 
 import Foundation
-import Web3Core
+//import Web3Core
 
 struct CallContractRequest: Encodable {
     var contractAddress: String = dataPunkAddress
@@ -39,6 +39,10 @@ let proxyBaseURL = "https://rdf-kv.vercel.app"
 struct ChainProxy {
     let readURL = URL(string: "\(proxyBaseURL)/call")!
     let writeURL = URL(string: "\(proxyBaseURL)/send")!
+    
+    enum Web3Error: Error {
+        case walletError
+    }
     
     func readContract(_ properties: CallContractRequest) async throws -> String {
         // Ensure keychain has a private key
